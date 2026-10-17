@@ -3,6 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050505" />
+  <link rel="preconnect" href="https://cdn.discordapp.com" crossorigin />
+  <link rel="dns-prefetch" href="https://japi.rest" />
+  <link rel="dns-prefetch" href="https://abacus.jasoncameron.dev" />
+  <style>html,body{background:#050505;color:#e5e5e5}</style>
   <title>RAFX — strony, backend, boty Discord</title>
   <meta name="description" content="RAFX — robię strony internetowe, frontend, backend i boty na Discorda." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ff2b2b'/%3E%3Ctext x='16' y='23' font-family='Arial' font-weight='900' font-size='20' text-anchor='middle' fill='%23000'%3ER%3C/text%3E%3C/svg%3E" />
@@ -170,8 +175,8 @@
         <h3 class="font-display mt-5 text-xl font-bold text-white">Backend</h3>
         <p class="mt-2 text-sm text-neutral-400">API, bazy danych, logowanie i integracje.</p>
       </article>
-      <article class="card rv md:col-span-3">
-        <div class="grid items-center gap-8 md:grid-cols-[1fr_1.2fr]">
+      <article class="card rv md:col-span-2">
+        <div class="grid items-center gap-8 lg:grid-cols-[1fr_1.3fr]">
           <div>
             <div class="icon-box !border-[#5865f2]/30 !bg-[#5865f2]/15 !text-[#8891f7]"><i data-lucide="bot" class="size-6"></i></div>
             <h3 class="font-display mt-5 text-3xl font-bold text-white">Boty Discord</h3>
@@ -184,6 +189,21 @@
             </div>
             <pre id="code" class="font-mono min-h-[230px] overflow-x-auto p-5 text-[12.5px] leading-relaxed text-neutral-300"></pre>
           </div>
+        </div>
+      </article>
+      <article class="card rv group flex flex-col">
+        <div class="icon-box"><i data-lucide="puzzle" class="size-6"></i></div>
+        <h3 class="font-display mt-5 text-3xl font-bold text-white">Wtyczki webowe</h3>
+        <p class="mt-2 text-neutral-400">Rozszerzenia do Chrome: QC, przelicznik cen, auto-link do agenta i własny panel ustawień.</p>
+        <div class="mt-6 flex -space-x-3">
+          <img src="./ext/salvitool-icon.webp" alt="SalviTool" class="size-12 rounded-2xl ring-4 ring-panel transition duration-500 group-hover:-translate-y-1 group-hover:-rotate-6" />
+          <img src="./ext/kakomaxing-icon.webp" alt="Kakomaxing" class="size-12 rounded-2xl ring-4 ring-panel transition delay-75 duration-500 group-hover:-translate-y-1" />
+          <img src="./ext/trustedreps-icon.webp" alt="TrustedReps" class="size-12 rounded-2xl ring-4 ring-panel transition delay-150 duration-500 group-hover:-translate-y-1 group-hover:rotate-6" />
+        </div>
+        <div class="mt-auto flex flex-wrap items-center gap-2 pt-6">
+          <span class="chip flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="currentColor" class="size-3.5" aria-hidden="true"><path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-5.344 9.257c.206.01.413.016.621.016 6.627 0 12-5.373 12-12 0-1.54-.29-3.011-.818-4.364zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728Z"/></svg>Chrome</span>
+          <span class="chip">Manifest V3</span>
+          <span class="chip border-red/40 text-red">345+ użytkowników</span>
         </div>
       </article>
     </div>
