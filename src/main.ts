@@ -63,12 +63,12 @@ function clock(): void {
 function intro(): void {
   document.querySelectorAll<HTMLElement>("[data-split]").forEach((el) => {
     el.innerHTML = [...(el.textContent ?? "")]
-      .map((c, i) => `<span class="char" style="animation-delay:${0.05 + i * 0.06}s">${c}</span>`)
+      .map((c, i) => `<span class="char" style="animation-delay:${0.25 + i * 0.08}s">${c}</span>`)
       .join("");
   });
   const card = $("#card");
-  setTimeout(() => { card.style.opacity = "1"; card.style.transform = "none"; }, 120);
-  document.querySelectorAll<HTMLElement>(".fade").forEach((el, i) => setTimeout(() => el.classList.remove("opacity-0"), 250 + i * 100));
+  setTimeout(() => { card.style.opacity = "1"; card.style.transform = "none"; }, 400);
+  document.querySelectorAll<HTMLElement>(".fade").forEach((el, i) => setTimeout(() => el.classList.remove("opacity-0"), 700 + i * 150));
 }
 
 // ---------- Reveal ----------
