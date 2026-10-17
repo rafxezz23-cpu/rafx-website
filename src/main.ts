@@ -230,7 +230,24 @@ function contact(): void {
   });
 }
 
+// ---------- Menu na telefonie ----------
+function mobileMenu(): void {
+  const btn = $("#menuBtn"), menu = $("#mobileMenu");
+  const bars = btn.querySelectorAll<HTMLElement>(".mbar");
+  const set = (open: boolean) => {
+    btn.setAttribute("aria-expanded", String(open));
+    menu.style.gridTemplateRows = open ? "1fr" : "0fr";
+    bars[0].style.transform = open ? "translateY(6px) rotate(45deg)" : "";
+    bars[1].style.opacity = open ? "0" : "1";
+    bars[2].style.transform = open ? "translateY(-6px) rotate(-45deg)" : "";
+  };
+  btn.addEventListener("click", () => set(btn.getAttribute("aria-expanded") !== "true"));
+  menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => set(false)));
+  addEventListener("scroll", () => { if (btn.getAttribute("aria-expanded") === "true" && scrollY > 0) set(false); }, { passive: true });
+}
+
 render();
+mobileMenu();
 contact();
 renderExtensions();
 createIcons({ icons });

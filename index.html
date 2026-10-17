@@ -21,21 +21,40 @@
   <div id="progress" class="fixed top-0 left-0 z-50 h-[2px] w-full origin-left scale-x-0 bg-gradient-to-r from-red to-red2"></div>
 
   <!-- NAV -->
-  <nav id="nav" class="glass fixed top-4 left-1/2 z-40 flex -translate-x-1/2 items-center gap-0.5 rounded-full p-1.5 shadow-[0_10px_40px_-10px_rgb(0_0_0/.8)] transition-transform duration-500">
-    <a href="#top" class="group flex items-center gap-2 rounded-full py-0.5 pr-3 pl-0.5 transition hover:bg-white/5">
-      <span class="relative">
-        <img data-avatar src="https://cdn.discordapp.com/avatars/790196690514477106/af7c12125d058426a7f285b6b23beae4.png?size=64" alt="" class="size-8 rounded-full bg-white object-cover ring-2 ring-red transition group-hover:scale-110" />
-        <span class="absolute -right-0.5 -bottom-0.5 size-2.5 rounded-full border-2 border-panel bg-[#23a55a]"></span>
-      </span>
-      <span class="name-grad font-display hidden font-bold sm:inline">rafx</span>
-    </a>
-    <span class="mx-1 hidden h-5 w-px bg-white/10 sm:block"></span>
-    <a href="#omnie" class="nav-link">O mnie</a>
-    <a href="#uslugi" class="nav-link">Usługi</a>
-    <a href="#projekty" class="nav-link hidden sm:block">Projekty</a>
-    <a href="https://discord.gg/NFz8mrAuZ" target="_blank" class="ml-1 flex items-center gap-1.5 rounded-full bg-gradient-to-r from-red to-red2 px-4 py-2 text-sm font-bold text-white shadow-[0_0_20px_-4px_var(--color-red)] transition hover:scale-105">
-      <i data-lucide="message-circle" class="size-4"></i><span class="hidden sm:inline">Discord</span>
-    </a>
+  <nav id="nav" class="glass fixed top-3 right-3 left-3 z-40 rounded-3xl p-1.5 shadow-[0_10px_40px_-10px_rgb(0_0_0/.8)] sm:top-4 sm:right-auto sm:left-1/2 sm:-translate-x-1/2 sm:rounded-full">
+    <div class="flex items-center gap-0.5">
+      <a href="#top" class="group flex items-center gap-2 rounded-full py-0.5 pr-3 pl-0.5 transition hover:bg-white/5">
+        <span class="relative">
+          <img data-avatar src="https://cdn.discordapp.com/avatars/790196690514477106/af7c12125d058426a7f285b6b23beae4.png?size=64" alt="" class="size-8 rounded-full bg-white object-cover ring-2 ring-red transition group-hover:scale-110" />
+          <span class="absolute -right-0.5 -bottom-0.5 size-2.5 rounded-full border-2 border-panel bg-[#23a55a]"></span>
+        </span>
+        <span class="name-grad font-display font-bold">rafx</span>
+      </a>
+      <span class="mx-1 hidden h-5 w-px bg-white/10 sm:block"></span>
+      <a href="#omnie" class="nav-link hidden sm:block">O mnie</a>
+      <a href="#uslugi" class="nav-link hidden sm:block">Usługi</a>
+      <a href="#projekty" class="nav-link hidden sm:block">Projekty</a>
+      <a href="https://discord.gg/NFz8mrAuZ" target="_blank" class="ml-auto flex items-center gap-1.5 rounded-full bg-gradient-to-r from-red to-red2 px-4 py-2 text-sm font-bold text-white shadow-[0_0_20px_-4px_var(--color-red)] transition hover:scale-105 sm:ml-1">
+        <i data-lucide="message-circle" class="size-4"></i><span class="hidden sm:inline">Discord</span>
+      </a>
+      <button id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu" class="ml-1 grid size-10 place-items-center rounded-full border border-white/10 text-white transition active:scale-90 sm:hidden">
+        <span class="relative block h-3.5 w-4.5">
+          <span class="mbar absolute top-0 left-0 h-0.5 w-full rounded bg-current transition duration-300"></span>
+          <span class="mbar absolute top-1.5 left-0 h-0.5 w-full rounded bg-current transition duration-300"></span>
+          <span class="mbar absolute top-3 left-0 h-0.5 w-full rounded bg-current transition duration-300"></span>
+        </span>
+      </button>
+    </div>
+    <div id="mobileMenu" class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(.16,1,.3,1)] sm:hidden">
+      <div class="overflow-hidden">
+        <div class="space-y-1 px-1 pt-3 pb-2">
+          <a href="#omnie" class="mlink flex items-center gap-3 rounded-2xl px-4 py-3.5 text-base text-neutral-200 transition active:scale-[.98] active:bg-white/10"><span class="grid size-9 place-items-center rounded-xl bg-red/10 text-red"><i data-lucide="user-round" class="size-4.5"></i></span>O mnie<i data-lucide="chevron-right" class="ml-auto size-4 text-neutral-600"></i></a>
+          <a href="#uslugi" class="mlink flex items-center gap-3 rounded-2xl px-4 py-3.5 text-base text-neutral-200 transition active:scale-[.98] active:bg-white/10"><span class="grid size-9 place-items-center rounded-xl bg-red/10 text-red"><i data-lucide="layout-grid" class="size-4.5"></i></span>Usługi<i data-lucide="chevron-right" class="ml-auto size-4 text-neutral-600"></i></a>
+          <a href="#projekty" class="mlink flex items-center gap-3 rounded-2xl px-4 py-3.5 text-base text-neutral-200 transition active:scale-[.98] active:bg-white/10"><span class="grid size-9 place-items-center rounded-xl bg-red/10 text-red"><i data-lucide="folder-kanban" class="size-4.5"></i></span>Projekty<i data-lucide="chevron-right" class="ml-auto size-4 text-neutral-600"></i></a>
+          <a href="#kontakt" class="mlink flex items-center gap-3 rounded-2xl px-4 py-3.5 text-base text-neutral-200 transition active:scale-[.98] active:bg-white/10"><span class="grid size-9 place-items-center rounded-xl bg-red/10 text-red"><i data-lucide="send" class="size-4.5"></i></span>Kontakt<i data-lucide="chevron-right" class="ml-auto size-4 text-neutral-600"></i></a>
+        </div>
+      </div>
+    </div>
   </nav>
 
   <!-- LICZNIK -->
