@@ -1,6 +1,6 @@
 // Wspólne, zoptymalizowane efekty: świecące iskry w tle i własny kursor.
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const finePointer = matchMedia("(pointer: fine)").matches;
+const finePointer = matchMedia("(any-pointer: fine)").matches;
 
 /** Iskry lecące w górę. Poświata jest wyrysowana raz do sprite'a (zamiast drogiego shadowBlur na każdej kropce). */
 export function sparks(cv: HTMLCanvasElement, color: string, glow: string): void {
@@ -68,7 +68,7 @@ export function cursor(glow: HTMLElement, dot: HTMLElement, ring: HTMLElement): 
 
   addEventListener("pointermove", (e) => {
     if (e.pointerType !== "mouse") return;
-    if (!root.classList.contains("cursor-on")) { rx = gx = e.clientX; ry = gy = e.clientY; root.classList.add("cursor-on"); }
+    if (!root.classList.contains("cursor-on")) { rx = e.clientX; ry = e.clientY; root.classList.add("cursor-on"); }
     mx = e.clientX; my = e.clientY;
     kick();
   }, { passive: true });

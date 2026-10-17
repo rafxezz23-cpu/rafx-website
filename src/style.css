@@ -91,7 +91,7 @@
 
 /* własny kursor (tylko mysz) */
 .cursor-el { display: none; opacity: 0; transition: opacity .3s; will-change: translate, scale; }
-@media (pointer: fine) {
+@media (any-pointer: fine) {
   .cursor-el { display: block; }
   html.has-cursor, html.has-cursor * { cursor: none !important; }
 }
