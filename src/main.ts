@@ -199,7 +199,39 @@ function scrollSpy(): void {
   document.querySelectorAll("section[id], header[id]").forEach((s) => io.observe(s));
 }
 
+// ---------- Wybór kontaktu: Discord albo e-mail ----------
+function contact(): void {
+  const modal = $("#contactModal"), panel = $("#contactPanel");
+  const backdrop = modal.querySelector<HTMLElement>("[data-cclose]")!;
+  const open = (e: Event) => {
+    e.preventDefault();
+    modal.classList.replace("hidden", "flex");
+    document.body.style.overflow = "hidden";
+    requestAnimationFrame(() => {
+      backdrop.classList.remove("opacity-0");
+      panel.classList.remove("opacity-0", "translate-y-10", "scale-95");
+    });
+  };
+  const close = () => {
+    backdrop.classList.add("opacity-0");
+    panel.classList.add("opacity-0", "translate-y-10", "scale-95");
+    document.body.style.overflow = "";
+    setTimeout(() => modal.classList.replace("flex", "hidden"), 400);
+  };
+  document.querySelectorAll("[data-contact]").forEach((b) => b.addEventListener("click", open));
+  modal.querySelectorAll("[data-cclose], .cpick").forEach((b) => b.addEventListener("click", close));
+  addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.classList.contains("hidden")) close(); });
+  const copyBtn = $("#copyMail");
+  copyBtn.addEventListener("click", async () => {
+    await navigator.clipboard.writeText("rafxezz23@gmail.com");
+    const label = copyBtn.querySelector("span")!;
+    label.textContent = "Skopiowano ✓";
+    setTimeout(() => (label.textContent = "Skopiuj adres e-mail"), 1500);
+  });
+}
+
 render();
+contact();
 renderExtensions();
 createIcons({ icons });
 profile();
