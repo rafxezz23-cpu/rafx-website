@@ -51,6 +51,7 @@
       <div class="overflow-hidden">
         <div class="space-y-1 px-1 pt-3 pb-2">
           <a href="#omnie" class="mlink flex items-center gap-3 rounded-2xl px-4 py-3.5 text-base text-neutral-200 transition active:scale-[.98] active:bg-white/10"><span class="grid size-9 place-items-center rounded-xl bg-red/10 text-red"><i data-lucide="user-round" class="size-4.5"></i></span>O mnie<i data-lucide="chevron-right" class="ml-auto size-4 text-neutral-600"></i></a>
+          <a href="#setup" class="mlink flex items-center gap-3 rounded-2xl px-4 py-3.5 text-base text-neutral-200 transition active:scale-[.98] active:bg-white/10"><span class="grid size-9 place-items-center rounded-xl bg-red/10 text-red"><i data-lucide="monitor" class="size-4.5"></i></span>Sprzęt<i data-lucide="chevron-right" class="ml-auto size-4 text-neutral-600"></i></a>
           <a href="#uslugi" class="mlink flex items-center gap-3 rounded-2xl px-4 py-3.5 text-base text-neutral-200 transition active:scale-[.98] active:bg-white/10"><span class="grid size-9 place-items-center rounded-xl bg-red/10 text-red"><i data-lucide="layout-grid" class="size-4.5"></i></span>Usługi<i data-lucide="chevron-right" class="ml-auto size-4 text-neutral-600"></i></a>
           <a href="#projekty" class="mlink flex items-center gap-3 rounded-2xl px-4 py-3.5 text-base text-neutral-200 transition active:scale-[.98] active:bg-white/10"><span class="grid size-9 place-items-center rounded-xl bg-red/10 text-red"><i data-lucide="folder-kanban" class="size-4.5"></i></span>Projekty<i data-lucide="chevron-right" class="ml-auto size-4 text-neutral-600"></i></a>
           <a href="#kontakt" class="mlink flex items-center gap-3 rounded-2xl px-4 py-3.5 text-base text-neutral-200 transition active:scale-[.98] active:bg-white/10"><span class="grid size-9 place-items-center rounded-xl bg-red/10 text-red"><i data-lucide="send" class="size-4.5"></i></span>Kontakt<i data-lucide="chevron-right" class="ml-auto size-4 text-neutral-600"></i></a>
@@ -154,6 +155,50 @@
         <div class="icon-box"><i data-lucide="fingerprint-pattern" class="size-6"></i></div>
         <p class="mt-5 text-sm text-neutral-500">Discord ID</p>
         <button id="copyId" class="font-mono mt-1 flex cursor-pointer items-center gap-2 text-left text-base break-all text-white transition hover:text-red">790196690514477106 <i data-lucide="copy" class="size-4 shrink-0"></i></button>
+      </article>
+    </div>
+  </section>
+
+  <!-- SPRZĘT -->
+  <section id="setup" class="mx-auto max-w-6xl px-4 pt-24">
+    <div class="rv mb-12 text-center"><h2 class="h2">Mój sprzęt</h2><p class="mt-4 text-neutral-500">Na tym powstają wszystkie strony, wtyczki i boty.</p></div>
+    <div class="grid gap-4 md:grid-cols-3">
+      <article class="card rv group md:col-span-2">
+        <div class="flex items-center justify-between">
+          <div class="icon-box"><i data-lucide="monitor" class="size-6"></i></div>
+          <span class="flex items-center gap-1.5 rounded-full border border-[#23a55a]/30 bg-[#23a55a]/10 px-3 py-1 text-xs text-[#23a55a]"><span class="size-1.5 animate-pulse rounded-full bg-[#23a55a]"></span>główny setup</span>
+        </div>
+        <h3 class="font-display mt-6 text-3xl font-bold text-white sm:text-4xl">PC</h3>
+        <p class="mt-2 text-neutral-400">Główny komputer do kodowania, buildów i testów.</p>
+        <div class="mt-8 grid gap-3 sm:grid-cols-2">
+          <div class="spec rounded-2xl border border-white/10 bg-black/30 p-5 transition duration-500 hover:border-[#76b900]/50">
+            <div class="flex items-center gap-3">
+              <span class="grid size-11 place-items-center rounded-xl bg-[#76b900]/15 text-[#76b900]"><i data-lucide="gpu" class="size-5"></i></span>
+              <div><p class="text-xs tracking-widest text-neutral-500 uppercase">Karta graficzna</p><p class="font-display text-xl font-bold text-white">GeForce RTX 4060</p></div>
+            </div>
+            <p class="mt-3 text-xs text-neutral-500">NVIDIA</p>
+          </div>
+          <div class="spec rounded-2xl border border-white/10 bg-black/30 p-5 transition duration-500 hover:border-[#0071c5]/60">
+            <div class="flex items-center gap-3">
+              <span class="grid size-11 place-items-center rounded-xl bg-[#0071c5]/15 text-[#3b9cff]"><i data-lucide="cpu" class="size-5"></i></span>
+              <div><p class="text-xs tracking-widest text-neutral-500 uppercase">Procesor</p><p class="font-display text-xl font-bold text-white">Core i5-14400F</p></div>
+            </div>
+            <p class="mt-3 text-xs text-neutral-500">Intel</p>
+          </div>
+        </div>
+      </article>
+      <article class="card rv group flex flex-col">
+        <div class="icon-box"><i data-lucide="smartphone" class="size-6"></i></div>
+        <h3 class="font-display mt-6 text-3xl font-bold text-white">Telefon</h3>
+        <p class="mt-2 text-neutral-400">Na nim sprawdzam, jak strony wyglądają na telefonie.</p>
+        <div class="relative mx-auto mt-6 h-44 w-24 rounded-[1.6rem] border-[3px] border-neutral-700 bg-gradient-to-b from-neutral-900 to-black p-1.5 shadow-[0_20px_50px_-15px_rgb(255_43_43/.45)] transition duration-700 group-hover:-translate-y-2 group-hover:-rotate-6">
+          <span class="absolute top-2 left-1/2 h-3 w-8 -translate-x-1/2 rounded-full bg-black"></span>
+          <div class="grid size-full place-items-center rounded-[1.2rem] bg-[radial-gradient(circle_at_50%_30%,rgb(255_43_43/.5),transparent_70%),#0a0505]">
+            <span class="name-grad font-display text-lg font-bold">rafx</span>
+          </div>
+        </div>
+        <p class="font-display mt-6 text-center text-xl font-bold text-white">iPhone 16</p>
+        <p class="text-center text-xs text-neutral-500">Apple</p>
       </article>
     </div>
   </section>
