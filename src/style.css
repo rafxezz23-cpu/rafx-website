@@ -206,3 +206,17 @@ html.cursor-on .cursor-el { opacity: 1; }
 .flash { position: absolute; right: -9px; top: 50%; width: 6px; height: 6px; border-radius: 50%; background: #f2e7c8; transform: translateY(-50%); }
 .phone-logo { position: absolute; top: 50%; left: 50%; width: 26px; height: 26px; transform: translate(-50%, -50%); color: #c9c7c2; }
 @media (prefers-reduced-motion: reduce) { .phone { transform: rotateY(-14deg); } }
+
+/* ===== Mój sprzęt: prawdziwe zdjęcia ===== */
+.pcphoto { position: relative; display: grid; place-items: center; animation: hw-float 6s ease-in-out infinite; transition: transform .8s cubic-bezier(.16,1,.3,1); }
+.group:hover .pcphoto { transform: translateY(-6px) scale(1.03) rotate(-1.5deg); }
+.pcphoto-glow { position: absolute; inset: 12% 8%; border-radius: 30%; background: radial-gradient(closest-side, rgb(255 43 43 / .55), rgb(118 185 0 / .18) 60%, transparent); filter: blur(28px); transition: opacity .6s; opacity: .7; }
+.group:hover .pcphoto-glow { opacity: 1; }
+.iphone { position: relative; display: grid; place-items: center; animation: hw-float 5s ease-in-out infinite; transition: transform .9s cubic-bezier(.16,1,.3,1); }
+.group:hover .iphone { transform: rotate(-6deg) translateY(-8px) scale(1.04); }
+.iphone-glow { position: absolute; inset: 15% 5%; border-radius: 40%; background: radial-gradient(closest-side, rgb(255 43 43 / .55), transparent); filter: blur(26px); }
+.iphone-time { position: absolute; top: 7.2%; left: 19%; font: 600 9px var(--font-sans); color: #fff; }
+.iphone-name { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1.6rem; font-weight: 800; }
+@keyframes hw-float { 50% { translate: 0 -8px; } }
+.pcphoto img { filter: brightness(1.25) contrast(1.15) drop-shadow(0 0 22px rgb(255 43 43 / .45)) drop-shadow(0 30px 40px rgb(0 0 0 / .8)); }
+.pcphoto-glow { opacity: 1; background: radial-gradient(closest-side, rgb(255 43 43 / .7), rgb(255 43 43 / .15) 65%, transparent); }

@@ -187,22 +187,11 @@
             </div>
           </div>
 
-          <!-- obudowa PC -->
-          <div class="pc mx-auto" aria-hidden="true">
-            <div class="pc-case">
-              <div class="pc-glass">
-                <div class="pc-fans-top"><span class="fan "><span class="fan-blades"></span><span class="fan-hub"></span></span><span class="fan "><span class="fan-blades"></span><span class="fan-hub"></span></span></div>
-                <div class="pc-mid">
-                  <div class="pc-cpu"><span>i5</span></div>
-                  <div class="pc-fans-side"><span class="fan fan-sm"><span class="fan-blades"></span><span class="fan-hub"></span></span></div>
-                </div>
-                <div class="pc-gpu"><span class="pc-gpu-fan"></span><span class="pc-gpu-fan"></span><b>RTX 4060</b></div>
-                <div class="pc-fans-front"><span class="fan fan-sm"><span class="fan-blades"></span><span class="fan-hub"></span></span><span class="fan fan-sm"><span class="fan-blades"></span><span class="fan-hub"></span></span></div>
-              </div>
-              <span class="pc-power"></span>
-            </div>
-            <div class="pc-shadow"></div>
-          </div>
+          <!-- zdjęcie PC -->
+          <figure class="pcphoto mx-auto" aria-label="Komputer gamingowy">
+            <span class="pcphoto-glow"></span>
+            <img src="./hw/gaming-pc.webp" alt="Komputer gamingowy z wentylatorami RGB" width="640" height="1001" loading="lazy" decoding="async" class="relative w-[190px] drop-shadow-[0_30px_40px_rgb(0_0_0/.8)] sm:w-[210px]" />
+          </figure>
         </div>
       </article>
 
@@ -210,25 +199,13 @@
       <article class="card rv group flex flex-col items-center text-center">
         <div class="flex w-full items-center justify-between">
           <div class="icon-box"><i data-lucide="smartphone" class="size-6"></i></div>
-          <span class="text-xs text-neutral-500">najedź, żeby obrócić</span>
+          
         </div>
-        <div class="phone-stage my-8">
-          <div class="phone">
-            <!-- przód -->
-            <div class="phone-face phone-front">
-              <div class="phone-screen">
-                <span class="phone-island"></span>
-                <span class="phone-time">9:41</span>
-                <span class="name-grad font-display text-2xl font-bold">rafx</span>
-                <span class="phone-bar"></span>
-              </div>
-            </div>
-            <!-- tył -->
-            <div class="phone-face phone-back">
-              <div class="phone-cams"><span class="lens"></span><span class="lens"></span><span class="flash"></span></div>
-              <svg class="phone-logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"/></svg>
-            </div>
-          </div>
+        <div class="iphone my-8">
+          <span class="iphone-glow"></span>
+          <img src="./hw/iphone16-white.svg" alt="Biały iPhone 16" width="360" height="730" loading="lazy" decoding="async" class="relative w-[150px] drop-shadow-[0_30px_40px_rgb(0_0_0/.85)]" />
+          <span class="iphone-time">9:41</span>
+          <span class="iphone-name name-grad font-display">rafx</span>
         </div>
         <h3 class="font-display text-3xl font-bold text-white">iPhone 16</h3>
         <p class="mt-1 text-sm text-neutral-500">Apple · biały</p>
@@ -426,6 +403,7 @@
   <footer class="relative overflow-hidden border-t border-edge px-4 pt-20 pb-10 text-center">
     <div class="name-grad font-display text-[clamp(5rem,22vw,16rem)] leading-none font-bold tracking-[-.06em] opacity-25 select-none">rafx</div>
     <p class="mt-6 text-xs text-neutral-600">© 2026 rafx.pl</p>
+    <p class="mt-3 text-center text-[10px] text-neutral-700">Zdjęcie PC: PantheraLeo1359531, <a class="underline" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> · Grafika iPhone 16: Rafael Fernandez, zmieniony kolor, <a class="underline" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a> · Wikimedia Commons</p>
   </footer>
 
 
