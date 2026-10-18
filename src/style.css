@@ -245,3 +245,5 @@ html.cursor-on .cursor-el { opacity: 1; }
 .group:hover .hw-pc { transform: translateY(-10px) scale(1.04); filter: brightness(1.4) contrast(1.15) drop-shadow(0 0 40px rgb(255 43 43 / .55)); }
 .group:hover .hw-phone { transform: translateY(-10px) rotate(0deg) scale(1.05); }
 .hw-info { position: relative; padding: 4px 28px 26px; }
+.hw-pc { height: 250px; filter: drop-shadow(0 0 30px rgb(255 43 43 / .3)) drop-shadow(0 25px 30px rgb(0 0 0 / .7)); }
+.group:hover .hw-pc { filter: drop-shadow(0 0 45px rgb(255 43 43 / .5)) drop-shadow(0 25px 30px rgb(0 0 0 / .7)); }
