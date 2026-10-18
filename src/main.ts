@@ -246,7 +246,53 @@ function mobileMenu(): void {
   addEventListener("scroll", () => { if (btn.getAttribute("aria-expanded") === "true" && scrollY > 0) set(false); }, { passive: true });
 }
 
+// ---------- Formularz zamówienia (FormSubmit → e-mail) ----------
+function orderForm(): void {
+  const form = $<HTMLFormElement>("#orderForm"), btn = $<HTMLButtonElement>("#orderBtn"), msg = $("#orderMsg");
+  const label = btn.querySelector("span")!;
+  const show = (ok: boolean, text: string) => {
+    msg.textContent = text;
+    msg.className = `mt-5 rounded-xl px-4 py-3 text-sm ${ok ? "border border-[#23a55a]/40 bg-[#23a55a]/10 text-[#7ee2a0]" : "border border-red/40 bg-red/10 text-red-300"}`;
+  };
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    const d = new FormData(form);
+    if (d.get("_honey")) return;
+    btn.disabled = true;
+    label.textContent = "Wysyłanie…";
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/rafxezz23@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `Nowe zamówienie: ${d.get("typ")} — ${d.get("imie")}`,
+          _template: "table",
+          _captcha: "false",
+          _replyto: d.get("email"),
+          "Typ projektu": d.get("typ"),
+          "Imię": d.get("imie"),
+          "E-mail": d.get("email"),
+          "Discord": d.get("discord") || "—",
+          "Budżet": d.get("budzet"),
+          "Opis": d.get("opis"),
+        }),
+      });
+      const j = await res.json().catch(() => ({}));
+      if (!res.ok || String(j.success) === "false") throw new Error(j.message || "błąd");
+      form.reset();
+      show(true, "Dzięki! Zamówienie wysłane — odezwę się na maila albo na Discordzie.");
+    } catch {
+      show(false, "Nie udało się wysłać. Spróbuj ponownie albo napisz do mnie na Discordzie.");
+    } finally {
+      btn.disabled = false;
+      label.textContent = "Wyślij zamówienie";
+    }
+  });
+}
+
 render();
+orderForm();
 mobileMenu();
 contact();
 renderExtensions();
