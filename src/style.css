@@ -247,3 +247,7 @@ html.cursor-on .cursor-el { opacity: 1; }
 .hw-info { position: relative; padding: 4px 28px 26px; }
 .hw-pc { height: 250px; filter: drop-shadow(0 0 30px rgb(255 43 43 / .3)) drop-shadow(0 25px 30px rgb(0 0 0 / .7)); }
 .group:hover .hw-pc { filter: drop-shadow(0 0 45px rgb(255 43 43 / .5)) drop-shadow(0 25px 30px rgb(0 0 0 / .7)); }
+.hw-pc { height: 255px; filter: drop-shadow(0 0 36px rgb(160 60 255 / .25)) drop-shadow(0 25px 30px rgb(0 0 0 / .75)); }
+.group:hover .hw-pc { filter: drop-shadow(0 0 50px rgb(255 43 43 / .45)) drop-shadow(0 25px 30px rgb(0 0 0 / .75)); }
+.hw-phone { width: auto; height: 255px; transform: none; filter: drop-shadow(0 0 30px rgb(255 255 255 / .12)) drop-shadow(0 25px 30px rgb(0 0 0 / .75)); }
+.group:hover .hw-phone { transform: translateY(-10px) scale(1.05); }
