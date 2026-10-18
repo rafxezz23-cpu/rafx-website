@@ -171,7 +171,7 @@ export function renderExtensions(): void {
   grid.innerHTML = [...sites, ...extensions].map((p) => card(p).replace('class="pcard ', `data-cat="${cat(p)}" class="pcard `)).join("") + botCard;
 
   const counts: Record<string, number> = { all: sites.length + extensions.length, site: sites.length, ext: extensions.length, bot: 0 };
-  document.querySelectorAll<HTMLElement>("[data-count]").forEach((el) => { const n = counts[el.dataset.count!]; if (n) el.textContent = String(n); else el.remove(); });
+  document.querySelectorAll<HTMLElement>(".ptab [data-count]").forEach((el) => { const n = counts[el.dataset.count!]; if (n) el.textContent = String(n); else el.remove(); });
   $("#statProjects").textContent = String(counts.all);
 
   const tabs = [...document.querySelectorAll<HTMLButtonElement>(".ptab")];
