@@ -111,30 +111,38 @@ export const all = [...extensions, ...sites];
 
 export function renderExtensions(): void {
   const card = (p: Project) => {
-    const site = p.kind.startsWith("Strona");
     const round = p.id === "jachu" || p.id === "vynx";
     const status = p.url
-      ? (site ? `<span class="size-1.5 rounded-full bg-[#23a55a]"></span>live` : `<i data-lucide="users" class="size-3"></i>${parseInt(p.meta)}`)
-      : `<i data-lucide="clock" class="size-3"></i>soon`;
-    const preview = p.shots.length
-      ? `<img src="${src(p.shots[0])}" alt="${p.name}" loading="lazy" class="size-full object-cover object-top transition duration-[1.2s] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.06]" />`
-      : `<div class="grid size-full place-items-center bg-[radial-gradient(circle_at_50%_120%,rgb(255_43_43/.45),transparent_60%),#0a0303]"><div class="absolute inset-0 opacity-40 [background-image:linear-gradient(rgb(255_43_43/.15)_1px,transparent_1px),linear-gradient(90deg,rgb(255_43_43/.15)_1px,transparent_1px)] [background-size:28px_28px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]"></div><div class="relative text-center"><p class="font-display text-4xl font-extrabold text-white drop-shadow-[0_0_25px_#ff2b2b]">${p.name}</p><p class="font-mono mt-2 text-[11px] tracking-[.3em] text-red uppercase">w budowie</p></div></div>`;
+      ? (p.kind.startsWith("Strona")
+        ? `<span class="size-1.5 rounded-full bg-[#23a55a]"></span>Live`
+        : `<i data-lucide="users" class="size-3"></i>${parseInt(p.meta)}`)
+      : `<span class="size-1.5 rounded-full bg-amber-400"></span>Wkrótce`;
+    const host = p.url ? p.url.replace(/^https?:\/\//, "").replace(/\/.*$/, "") : p.name;
+    const icon = p.icon
+      ? `<img src="${src(p.icon)}" alt="" class="size-11 shrink-0 ${round ? "rounded-full" : "rounded-xl"} object-cover" />`
+      : `<span class="grid size-11 shrink-0 place-items-center rounded-xl bg-white/5 text-neutral-400"><i data-lucide="hammer" class="size-5"></i></span>`;
     return `
-    <a href="${BASE}projekt.html?id=${p.id}" style="--acc:${p.acc};--accink:${p.ink}" class="pcard feat card rv group flex flex-col !p-0">
-      <div class="relative aspect-[16/10] overflow-hidden border-b border-white/5">
-        ${preview}
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-transparent to-black/30"></div>
-        <span class="absolute top-3 left-3 flex items-center gap-1.5 rounded-full border border-white/10 bg-black/60 px-2.5 py-1 text-[11px] text-neutral-200 backdrop-blur"><i data-lucide="${site ? "globe" : "puzzle"}" class="size-3"></i>${site ? "Strona" : "Wtyczka"}</span>
-        <span class="absolute top-3 right-3 flex items-center gap-1.5 rounded-full border border-white/10 bg-black/60 px-2.5 py-1 text-[11px] text-neutral-200 backdrop-blur">${status}</span>
-      </div>
-      <div class="relative flex flex-1 flex-col px-5 pb-5">
-        <div class="-mt-8 flex items-end justify-between">
-          ${p.icon ? `<img src="${src(p.icon)}" alt="" class="size-16 ${round ? "rounded-full" : "rounded-2xl"} bg-[#0c0c0c] object-cover ring-4 ring-[#0c0c0c] transition duration-500 group-hover:-translate-y-1 group-hover:rotate-3" />` : `<span class="grid size-16 place-items-center rounded-2xl bg-[#0c0c0c] text-red ring-4 ring-[#0c0c0c]"><i data-lucide="hammer" class="size-7"></i></span>`}
-          <span class="grid size-10 place-items-center rounded-full border border-white/10 text-neutral-500 transition duration-500 group-hover:-rotate-45 group-hover:border-[var(--acc)] group-hover:bg-[var(--acc)] group-hover:text-[var(--accink)]"><i data-lucide="arrow-right" class="size-4"></i></span>
+    <a href="${BASE}projekt.html?id=${p.id}" style="--acc:${p.acc}" class="pcard rv group flex flex-col">
+      <div class="pcard-frame">
+        <div class="pcard-bar">
+          <span class="flex gap-1.5"><i></i><i></i><i></i></span>
+          <span class="truncate">${host}</span>
+          <span class="pcard-status">${status}</span>
         </div>
-        <h4 class="font-display mt-4 text-2xl font-bold text-white">${p.name}</h4>
-        <p class="mt-1.5 line-clamp-2 text-sm leading-relaxed text-neutral-400">${p.desc}</p>
-        <div class="mt-auto flex flex-wrap gap-1.5 pt-5">${p.tags.slice(0, 3).map((t) => `<span class="rounded-full border border-[color-mix(in_srgb,var(--acc)_22%,#262626)] px-2.5 py-0.5 text-[11px] text-neutral-400">${t}</span>`).join("")}</div>
+        <div class="pcard-shot">
+          ${p.shots.length ? `<img src="${src(p.shots[0])}" alt="Podgląd ${p.name}" loading="lazy" decoding="async" />` : ""}
+        </div>
+      </div>
+      <div class="flex flex-1 flex-col px-1 pt-5">
+        <div class="flex items-center gap-3">
+          ${icon}
+          <div class="min-w-0 flex-1">
+            <h4 class="font-display truncate text-xl font-bold text-white">${p.name}</h4>
+            <p class="truncate text-xs text-neutral-500">${p.tags.slice(0, 3).join(" · ")}</p>
+          </div>
+          <span class="pcard-arrow"><i data-lucide="arrow-up-right" class="size-4"></i></span>
+        </div>
+        <p class="mt-3 line-clamp-2 text-sm leading-relaxed text-neutral-400">${p.desc}</p>
       </div>
     </a>`;
   };
