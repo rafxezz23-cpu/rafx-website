@@ -162,54 +162,67 @@
 
   <!-- SPRZĘT -->
   <section id="setup" class="mx-auto max-w-6xl px-4 pt-24">
-    <div class="rv mb-12 text-center"><h2 class="h2">Mój sprzęt</h2><p class="mt-4 text-neutral-500">Na tym powstają wszystkie strony, wtyczki i boty.</p></div>
-    <div class="grid gap-4 md:grid-cols-[1.6fr_1fr]">
+    <div class="rv mb-12 text-center">
+      <h2 class="h2">Mój sprzęt</h2>
+      <p class="mt-4 text-neutral-500">Na tym powstają wszystkie strony, wtyczki i boty.</p>
+    </div>
+    <div class="grid gap-5 md:grid-cols-[1.25fr_1fr]">
 
       <!-- PC -->
-      <article class="card rv group">
-        <div class="grid items-center gap-8 sm:grid-cols-[1fr_auto]">
-          <div>
-            <div class="flex items-center gap-3">
-              <div class="icon-box"><i data-lucide="monitor" class="size-6"></i></div>
-              <span class="flex items-center gap-1.5 rounded-full border border-[#23a55a]/30 bg-[#23a55a]/10 px-3 py-1 text-xs text-[#23a55a]"><span class="size-1.5 animate-pulse rounded-full bg-[#23a55a]"></span>główny setup</span>
-            </div>
-            <h3 class="font-display mt-6 text-4xl font-bold text-white">PC</h3>
-            <p class="mt-2 text-neutral-400">Główny komputer do kodowania, buildów i testów.</p>
-            <div class="mt-7 grid gap-3">
-            <div class="spec flex items-center gap-4 rounded-2xl border border-white/10 bg-black/30 p-4 transition duration-500" style="--sc:#76b900">
-              <span class="grid size-12 shrink-0 place-items-center rounded-xl" style="background:rgb(118 185 0 / .14);color:#76b900"><i data-lucide="gpu" class="size-6"></i></span>
-              <div class="min-w-0"><p class="text-[11px] tracking-[.2em] text-neutral-500 uppercase">Karta graficzna</p><p class="font-display truncate text-xl font-bold text-white">GeForce RTX 4060</p><p class="text-xs text-neutral-500">NVIDIA</p></div>
-            </div>
-            <div class="spec flex items-center gap-4 rounded-2xl border border-white/10 bg-black/30 p-4 transition duration-500" style="--sc:#3b9cff">
-              <span class="grid size-12 shrink-0 place-items-center rounded-xl" style="background:rgb(0 113 197 / .16);color:#3b9cff"><i data-lucide="cpu" class="size-6"></i></span>
-              <div class="min-w-0"><p class="text-[11px] tracking-[.2em] text-neutral-500 uppercase">Procesor</p><p class="font-display truncate text-xl font-bold text-white">Core i5-14400F</p><p class="text-xs text-neutral-500">Intel</p></div>
-            </div>
-            </div>
+      <article class="hw-card rv group">
+        <div class="hw-stage">
+          <span class="hw-spot"></span>
+          <span class="hw-floor"></span>
+          <span class="hw-badge"><span class="size-1.5 animate-pulse rounded-full bg-[#23a55a]"></span>główny setup</span>
+          <img src="./hw/gaming-pc.webp" alt="Komputer gamingowy z wentylatorami RGB" width="520" height="1189" loading="lazy" decoding="async" class="hw-product hw-pc" />
+        </div>
+        <div class="hw-info">
+          <div class="flex items-end justify-between gap-4">
+            <div><p class="text-xs tracking-[.25em] text-red uppercase">Komputer</p><h3 class="font-display mt-1 text-4xl font-bold text-white">Gaming PC</h3></div>
+            <span class="hidden text-sm text-neutral-500 sm:block">kod · buildy · testy</span>
           </div>
-
-          <!-- zdjęcie PC -->
-          <figure class="pcphoto mx-auto" aria-label="Komputer gamingowy">
-            <span class="pcphoto-glow"></span>
-            <img src="./hw/gaming-pc.webp" alt="Komputer gamingowy z wentylatorami RGB" width="640" height="1001" loading="lazy" decoding="async" class="relative w-[190px] drop-shadow-[0_30px_40px_rgb(0_0_0/.8)] sm:w-[210px]" />
-          </figure>
+          <ul class="mt-5 divide-y divide-white/[.06] border-t border-white/[.06]">
+              <li class="flex items-center gap-4 py-3.5">
+                <span class="grid size-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[.03]" style="color:#76b900"><i data-lucide="gpu" class="size-5"></i></span>
+                <span class="text-sm text-neutral-500">Karta graficzna</span>
+                <span class="ml-auto text-right font-semibold text-white">NVIDIA GeForce RTX 4060</span>
+              </li>
+              <li class="flex items-center gap-4 py-3.5">
+                <span class="grid size-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[.03]" style="color:#3b9cff"><i data-lucide="cpu" class="size-5"></i></span>
+                <span class="text-sm text-neutral-500">Procesor</span>
+                <span class="ml-auto text-right font-semibold text-white">Intel Core i5-14400F</span>
+              </li>
+          </ul>
         </div>
       </article>
 
       <!-- iPhone 16 -->
-      <article class="card rv group flex flex-col items-center text-center">
-        <div class="flex w-full items-center justify-between">
-          <div class="icon-box"><i data-lucide="smartphone" class="size-6"></i></div>
-          
+      <article class="hw-card rv group">
+        <div class="hw-stage">
+          <span class="hw-spot"></span>
+          <span class="hw-floor"></span>
+          <div class="hw-product hw-phone">
+            <img src="./hw/iphone16-white.svg" alt="Biały iPhone 16" width="360" height="730" loading="lazy" decoding="async" class="w-full" />
+            <span class="iphone-time">9:41</span>
+            <span class="iphone-name name-grad font-display">rafx</span>
+          </div>
         </div>
-        <div class="iphone my-8">
-          <span class="iphone-glow"></span>
-          <img src="./hw/iphone16-white.svg" alt="Biały iPhone 16" width="360" height="730" loading="lazy" decoding="async" class="relative w-[150px] drop-shadow-[0_30px_40px_rgb(0_0_0/.85)]" />
-          <span class="iphone-time">9:41</span>
-          <span class="iphone-name name-grad font-display">rafx</span>
+        <div class="hw-info">
+          <p class="text-xs tracking-[.25em] text-red uppercase">Telefon</p>
+          <h3 class="font-display mt-1 text-4xl font-bold text-white">iPhone 16</h3>
+          <ul class="mt-5 divide-y divide-white/[.06] border-t border-white/[.06]">
+              <li class="flex items-center gap-4 py-3.5">
+                <span class="grid size-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[.03]" style="color:#e5e5e5"><i data-lucide="smartphone" class="size-5"></i></span>
+                <span class="text-sm text-neutral-500">Kolor</span>
+                <span class="ml-auto text-right font-semibold text-white">Biały</span>
+              </li>
+              <li class="flex items-center gap-4 py-3.5">
+                <span class="grid size-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[.03]" style="color:#ff6b6b"><i data-lucide="scan-eye" class="size-5"></i></span>
+                <span class="text-sm text-neutral-500">Do czego</span>
+                <span class="ml-auto text-right font-semibold text-white">Testy stron na telefonie</span>
+              </li>
+          </ul>
         </div>
-        <h3 class="font-display text-3xl font-bold text-white">iPhone 16</h3>
-        <p class="mt-1 text-sm text-neutral-500">Apple · biały</p>
-        <p class="mt-4 text-sm text-neutral-400">Na nim sprawdzam, jak strony wyglądają na telefonie.</p>
       </article>
     </div>
   </section>
