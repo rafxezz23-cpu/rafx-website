@@ -298,19 +298,28 @@
   </section>
 
   <!-- PROJEKTY -->
-  <section id="projekty" class="mx-auto max-w-6xl px-4 py-16">
-    <div class="rv mb-12 text-center"><h2 class="h2">Projekty</h2></div>
-    <div class="rv mb-8 flex items-center gap-4">
-      <span class="icon-box"><i data-lucide="globe" class="size-6"></i></span>
-      <div><h3 class="font-display text-2xl font-bold text-white sm:text-3xl">Strony internetowe</h3><p class="text-sm text-neutral-500">Strony profilowe z danymi z Discorda</p></div>
+  <section id="projekty" class="mx-auto max-w-6xl px-4 py-24">
+    <div class="rv mb-10 flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="font-mono text-xs tracking-[.3em] text-red uppercase">Portfolio</p>
+        <h2 class="h2 !mt-2">Projekty</h2>
+        <p class="mt-3 max-w-md text-neutral-500">Strony, wtyczki i boty, które zrobiłem — z prawdziwymi użytkownikami.</p>
+      </div>
+      <div class="flex gap-8 text-right">
+        <div><p class="font-display text-3xl font-bold text-white" id="statProjects">0</p><p class="text-xs text-neutral-500">projektów</p></div>
+        <div><p class="font-display text-3xl font-bold text-white">345+</p><p class="text-xs text-neutral-500">użytkowników wtyczek</p></div>
+      </div>
     </div>
-    <div id="siteGrid" class="grid gap-5 md:grid-cols-2 lg:grid-cols-3"></div>
-
-    <div class="rv mt-16 mb-8 flex items-center gap-4">
-      <span class="icon-box"><i data-lucide="puzzle" class="size-6"></i></span>
-      <div><h3 class="font-display text-2xl font-bold text-white sm:text-3xl">Wtyczki Chrome</h3><p class="text-sm text-neutral-500">Rozszerzenia dla agentów zakupowych · <span id="extUsers">345</span>+ użytkowników</p></div>
+    <div class="rv ptabs-wrap">
+      <div class="ptabs" role="tablist" aria-label="Kategorie projektów">
+        <span class="ptab-pill" aria-hidden="true"></span>
+        <button type="button" role="tab" data-tab="all" aria-selected="true" class="ptab is-active"><i data-lucide="layout-grid" class="size-4"></i><span>Wszystkie</span><b data-count="all">0</b></button>
+        <button type="button" role="tab" data-tab="site" aria-selected="false" class="ptab"><i data-lucide="globe" class="size-4"></i><span>Strony</span><b data-count="site">0</b></button>
+        <button type="button" role="tab" data-tab="ext" aria-selected="false" class="ptab"><i data-lucide="puzzle" class="size-4"></i><span>Wtyczki</span><b data-count="ext">0</b></button>
+        <button type="button" role="tab" data-tab="bot" aria-selected="false" class="ptab"><i data-lucide="bot" class="size-4"></i><span>Boty Discord</span><b data-count="bot">0</b></button>
+      </div>
     </div>
-    <div id="extGrid" class="grid gap-5 md:grid-cols-2 lg:grid-cols-3"></div>
+    <div id="projGrid" class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3"></div>
   </section>
 
   <!-- ZAMÓWIENIE -->

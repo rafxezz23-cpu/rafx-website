@@ -146,8 +146,53 @@ export function renderExtensions(): void {
       </div>
     </a>`;
   };
-  $("#siteGrid").innerHTML = sites.map(card).join("");
-  $("#extGrid").innerHTML = extensions.map(card).join("");
+  // jedna siatka z zakładkami: Wszystkie / Strony / Wtyczki / Boty Discord
+  const cat = (p: Project) => (p.kind.startsWith("Strona") ? "site" : "ext");
+  const botCard = `
+    <a href="#zamow" data-cat="bot" style="--acc:#5865f2" class="pcard pcard-empty is-hidden rv group flex flex-col">
+      <div class="pcard-frame">
+        <div class="pcard-bar"><span class="flex gap-1.5"><i></i><i></i><i></i></span><span class="truncate">discord.com</span><span class="pcard-status"><span class="size-1.5 rounded-full bg-[#5865f2]"></span>Na zamówienie</span></div>
+        <div class="pcard-shot grid place-items-center">
+          <div class="relative text-center">
+            <span class="mx-auto grid size-16 place-items-center rounded-2xl bg-[#5865f2] text-white shadow-[0_15px_40px_-10px_#5865f2]"><i data-lucide="bot" class="size-8"></i></span>
+            <p class="font-mono mt-4 text-xs text-neutral-400">/ticket · /verify · /giveaway</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-1 flex-col px-1 pt-5">
+        <div class="flex items-center gap-3">
+          <div class="min-w-0 flex-1"><h4 class="font-display text-xl font-bold text-white">Twój bot Discord</h4><p class="text-xs text-neutral-500">discord.js · Slash commands · 24/7</p></div>
+          <span class="pcard-arrow"><i data-lucide="arrow-up-right" class="size-4"></i></span>
+        </div>
+        <p class="mt-3 line-clamp-2 text-sm leading-relaxed text-neutral-400">Tickety, weryfikacja, giveawaye, ekonomia, moderacja — zrobię bota pod twój serwer.</p>
+      </div>
+    </a>`;
+  const grid = $("#projGrid");
+  grid.innerHTML = [...sites, ...extensions].map((p) => card(p).replace('class="pcard ', `data-cat="${cat(p)}" class="pcard `)).join("") + botCard;
+
+  const counts: Record<string, number> = { all: sites.length + extensions.length, site: sites.length, ext: extensions.length, bot: 0 };
+  document.querySelectorAll<HTMLElement>("[data-count]").forEach((el) => { const n = counts[el.dataset.count!]; if (n) el.textContent = String(n); else el.remove(); });
+  $("#statProjects").textContent = String(counts.all);
+
+  const tabs = [...document.querySelectorAll<HTMLButtonElement>(".ptab")];
+  const pill = document.querySelector<HTMLElement>(".ptab-pill")!;
+  const movePill = (b: HTMLElement) => { pill.style.width = `${b.offsetWidth}px`; pill.style.translate = `${b.offsetLeft}px 0`; };
+  const select = (b: HTMLButtonElement) => {
+    const c = b.dataset.tab!;
+    tabs.forEach((x) => { const on = x === b; x.classList.toggle("is-active", on); x.setAttribute("aria-selected", String(on)); });
+    movePill(b);
+    let n = 0;
+    grid.querySelectorAll<HTMLElement>("[data-cat]").forEach((el) => {
+      const show = c === "all" ? el.dataset.cat !== "bot" : el.dataset.cat === c;
+      if (!show) { el.classList.add("is-hidden"); return; }
+      el.classList.remove("is-hidden", "on");
+      el.style.transitionDelay = `${n++ * 60}ms`;
+      requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add("on")));
+    });
+  };
+  tabs.forEach((b) => b.addEventListener("click", () => select(b)));
+  requestAnimationFrame(() => movePill(tabs[0]));
+  addEventListener("resize", () => movePill(tabs.find((x) => x.classList.contains("is-active"))!));
 
   const modal = $("#extModal"), panel = $("#extPanel"), shot = $<HTMLImageElement>("#extShot");
   const backdrop = modal.querySelector<HTMLElement>("[data-close]")!;
